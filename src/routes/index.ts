@@ -8,5 +8,6 @@ const tasksController = new TasksController()
 routes.get('/tasks', tasksController.list)
 routes.get('/tasks/:id', tasksController.detail)
 routes.post('/tasks', tasksController.create)
+routes.post('/tasks/:id', tasksController.update)
 
 export { routes }

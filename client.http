@@ -14,3 +14,12 @@ Content-Type: application/json
 {
     "name": "Fazer Pão"
 }
+
+###
+
+POST {{baseUrl}}/tasks/3
+Content-Type: application/json
+
+{
+    "name": "Fazer Bolo"
+}

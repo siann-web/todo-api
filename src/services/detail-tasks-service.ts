@@ -1,4 +1,4 @@
-import { Task } from "models/task-model"
+import { Task } from "../models/task-model"
 import { TasksRepository } from "../repositories/tasks-repository"
 
 export class DetailTaskService {

@@ -35,4 +35,13 @@ export class TasksRepository {
 
         return tasks
     }
+
+    public async update(id: number, name: string): Promise<Task> {
+        const task = await this.prisma.task.update({
+            where: { id: id },
+            data: { name }
+        })
+
+        return task
+    }
 }

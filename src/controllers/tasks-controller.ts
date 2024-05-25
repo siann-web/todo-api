@@ -3,6 +3,7 @@ import { Request, Response } from 'express'
 import { ListTasksService } from '../services/list-tasks-service'
 import { DetailTaskService } from '../services/detail-tasks-service'
 import { CreateTaskService } from '../services/create-task-service'
+import { UpdateTaskService } from '../services/update-task-service'
 
 export class TasksController {
     /**
@@ -43,4 +44,21 @@ export class TasksController {
 
         return response.status(201).json(task)
     }
+
+    /**
+     * PUT /tasks/:id
+     */
+
+    public async update(request: Request, response: Response): Promise<Response> {
+        const { id } = request.params
+        const { name } = request.body
+        const updateTaskService = new UpdateTaskService()
+        const task = await updateTaskService.exec(Number(id), name)
+
+        if (!task) {
+            return response.status(404).json({ "error": "task not found" })
+        }
+
+        return response.json(task)
+}
 }
