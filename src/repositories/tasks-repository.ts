@@ -44,4 +44,12 @@ export class TasksRepository {
 
         return task
     }
+
+    public async delete(id: number): Promise<Task> {
+        const task = await this.prisma.task.delete({
+            where: { id: id }
+        })
+
+        return task
+    }
 }

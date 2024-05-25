@@ -4,6 +4,8 @@ import { ListTasksService } from '../services/list-tasks-service'
 import { DetailTaskService } from '../services/detail-tasks-service'
 import { CreateTaskService } from '../services/create-task-service'
 import { UpdateTaskService } from '../services/update-task-service'
+import { DeleteTaskService } from '../services/delete-task-service'
+
 
 export class TasksController {
     /**
@@ -61,4 +63,19 @@ export class TasksController {
 
         return response.json(task)
 }
+
+    /**
+     * DELETE /tasks/:id
+     */
+    public async delete(request: Request, response: Response): Promise<Response> {
+        const { id } = request.params
+        const deleteTaskService = new DeleteTaskService()
+        const task = await deleteTaskService.exec(Number(id))
+
+        if (!task) {
+            return response.status(404).json({ "error": "task not found" })
+        }
+
+        return response.json(task)
+    }
 }
