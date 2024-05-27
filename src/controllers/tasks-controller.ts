@@ -55,7 +55,7 @@ export class TasksController {
         const { id } = request.params
         const { name } = request.body
         const updateTaskService = new UpdateTaskService()
-        const task = await updateTaskService.exec(Number(id), name)
+        const task = await updateTaskService.exec(Number(id), name,)
 
         if (!task) {
             return response.status(404).json({ "error": "task not found" })

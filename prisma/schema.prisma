@@ -13,6 +13,7 @@ datasource db {
 model Task {
   id   Int    @id @default(autoincrement())
   name String
+  date DateTime @default(now())
 
   @@map("tasks")
 }

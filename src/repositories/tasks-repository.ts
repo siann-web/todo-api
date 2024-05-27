@@ -39,9 +39,8 @@ export class TasksRepository {
     public async update(id: number, name: string): Promise<Task> {
         const task = await this.prisma.task.update({
             where: { id: id },
-            data: { name }
+            data: { name },
         })
-
         return task
     }
 
@@ -52,4 +51,5 @@ export class TasksRepository {
 
         return task
     }
+
 }
