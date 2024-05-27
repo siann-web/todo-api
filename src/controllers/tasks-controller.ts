@@ -5,6 +5,7 @@ import { DetailTaskService } from '../services/detail-tasks-service'
 import { CreateTaskService } from '../services/create-task-service'
 import { UpdateTaskService } from '../services/update-task-service'
 import { DeleteTaskService } from '../services/delete-task-service'
+import { DeleteAllTaskService } from '../services/deleteAll-task-service'
 
 
 export class TasksController {
@@ -77,5 +78,16 @@ export class TasksController {
         }
 
         return response.json(task)
+    }
+
+    /**
+     * DELETE /tasks
+     */
+
+    public async deleteAll(request: Request, response: Response): Promise<Response> {
+        const deleteAllTaskService = new DeleteAllTaskService()
+        await deleteAllTaskService.exec()
+
+        return response.status(204).send()
     }
 }

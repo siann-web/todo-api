@@ -52,4 +52,8 @@ export class TasksRepository {
         return task
     }
 
+    public async deleteAll(): Promise<Task[]> {
+        const task = await this.prisma.task.deleteMany()
+        return task
+    }
 }
