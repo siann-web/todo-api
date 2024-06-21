@@ -10,6 +10,11 @@ export class UpdateTaskService {
 
     public async exec(id: number, name: string): Promise<Task> {
         const task = await this.tasksRepository.update(id, name)
+
+        if (!task) {
+            return null
+        }
+        
         return task
     }
 }

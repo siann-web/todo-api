@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
-
 import { Task } from '../models/task-model';
 import { PrismaClient } from '@prisma/client';
 
@@ -52,8 +50,10 @@ export class TasksRepository {
         return task
     }
 
-    public async deleteAll(): Promise<Task[]> {
-        const task = await this.prisma.task.deleteMany()
+    public async deleteAll(id: number): Promise<Task> {
+        const task = await this.prisma.task.deleteMany({
+            where: { id: id }
+        })
         return task
     }
 }

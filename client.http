@@ -12,12 +12,12 @@ POST {{baseUrl}}/tasks
 Content-Type: application/json
 
 {
-    "name": "Fazer Cuscuz"
+    "name": "Fazer Tapioca"
 }
 
 ###
 
-POST {{baseUrl}}/tasks/3
+POST {{baseUrl}}/tasks/1
 Content-Type: application/json
 
 {
